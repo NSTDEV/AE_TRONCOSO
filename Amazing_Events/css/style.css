@@ -235,6 +235,7 @@ input {
 .form {
     margin: 4% auto;
     width: 40%;
+    min-height: 21rem;
     text-align: center;
 }
 
@@ -358,6 +359,8 @@ section {
 
 .navbar-burguer {
     width: 80%;
+    height: 100%;
+    cursor: pointer;
     float: inline-end;
 }
 
@@ -437,8 +440,10 @@ footer {
         flex-direction: column;
         position: absolute;
         width: 100%;
+        padding-block: 3rem;
         margin: 0 auto;
-        background-color: var(--purple) !important;
+        background-color: #0B0B0B80 !important;
+        backdrop-filter: blur(2px);
         transition: transform .3s;
         transform: translateY(-150%);
         z-index: 3;
@@ -471,6 +476,7 @@ footer {
 
     .form {
         width: 80%;
+        margin-block: 10%;
     }
 
     .card {
