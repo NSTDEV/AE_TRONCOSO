@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Events</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shorcut icon" href="./assets/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <img src="./assets/Logo_Amazing_Events.png" alt="Amazing Events Logo" id="logo" class="navbar-brand">
+
+        <div id="toggle-menu" class="toggle-menu">
+            <label for="toggle-menu-checkbox-show">
+                <img src="./assets/Navbar-toggler.png" alt="Responsive navbar" class="navbar-burguer">
+            </label>
+        </div>
+        <input type="checkbox" class="toggle-menu-checkbox-show" id="toggle-menu-checkbox-show">
+
+        <ul class="nav-items">
+            <li><a href="./index.html" class="item">Home</a></li>
+            <li><a href="./upcoming_events.html" class="item">Upcoming Events</a></li>
+            <li><a href="./past_events.html" class="item active">Past Events</a></li>
+            <li><a href="./contact.html" class="item">Contact</a></li>
+            <li><a href="./stats.html" class="item">Stats</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="navigation">
+            <div class="title-nav pagination">
+                <a class="page" href="./upcoming_events.html">&lt;</a>
+                <h1>Past Events</h1>
+                <a class="page" href="./contact.html">&gt;</a>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="search-wrapper">
+                <ul id="categories">
+                    <li>
+                        <input type="checkbox" id="category1" value="first_checkbox"><label
+                            for="category1">Category</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="category2" value="second_checkbox"><label
+                            for="category2">Category</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="category3" value="third_checkbox"><label
+                            for="category3">Category</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="category4" value="fourth_checkbox"><label
+                            for="category4">Category</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="category5" value="fifth_checkbox"><label
+                            for="category5">Category</label>
+                    </li>
+                </ul>
+
+                <div id="search-bar">
+                    <input type="text" name="query" id="search-box">
+                    <button class="fa fa-search"></button>
+                </div>
+            </div>
+
+            <div class="card-container">
+
+                <div class="card">
+                    <img src="./assets/Cinema.jpg" class="card-img-top" alt="Cinema">
+                    <div class="card-body">
+                        <h5 class="card-title">Cinema</h5>
+                        <p class="card-text">Event description</p>
+                        <div>
+                            <h6>Price $10000</h6>
+                            <a href="#" class="btn btn-primary">Go to</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="./assets/Costume_Party.jpg" class="card-img-top" alt="Costume Party">
+                    <div class="card-body">
+                        <h5 class="card-title">Costume Party</h5>
+                        <p class="card-text">Event description</p>
+                        <div>
+                            <h6>Price $10000</h6>
+                            <a href="#" class="btn btn-primary">Go to</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="./assets/Food_Fair.jpg" class="card-img-top" alt="Food Fair">
+                    <div class="card-body">
+                        <h5 class="card-title">Food Fair</h5>
+                        <p class="card-text">Event description</p>
+                        <div>
+                            <h6>Price $10000</h6>
+                            <a href="#" class="btn btn-primary">Go to</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="./assets/Marathon.jpg" class="card-img-top" alt="Marathon">
+                    <div class="card-body">
+                        <h5 class="card-title">Marathon</h5>
+                        <p class="card-text">Event description</p>
+                        <div>
+                            <h6>Price $10000</h6>
+                            <a href="#" class="btn btn-primary">Go to</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="social-links">
+                <a href="" target="_blank" class="s-link"><i class="fa fa-instagram"></i></a>
+                <a href="" target="_blank" class="s-link"><i class="fa fa-facebook"></i></a>
+                <a href="" target="_blank" class="s-link"><i class="fa fa-whatsapp"></i></a>
+            </div>
+
+            <h3>Cohort</h3>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
