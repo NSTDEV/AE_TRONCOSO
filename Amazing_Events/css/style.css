@@ -465,6 +465,12 @@ footer {
         height: 7rem;
     }
 
+    .page {
+        padding: 0;
+        height: auto;
+        margin: auto;
+    }
+
     .search-wrapper {
         grid-template-columns: auto;
         margin-inline: auto;
