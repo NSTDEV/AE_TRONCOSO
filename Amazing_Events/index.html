@@ -23,6 +23,7 @@
                 <img src="./assets/Navbar-toggler.png" alt="Responsive navbar" class="navbar-burguer">
             </label>
         </div>
+
         <input type="checkbox" class="toggle-menu-checkbox-show" id="toggle-menu-checkbox-show">
 
         <ul class="nav-items">
@@ -48,23 +49,31 @@
                 <ul id="categories">
                     <li>
                         <input type="checkbox" id="category1" value="first_checkbox"><label
-                            for="category1">Category</label>
+                            for="category1">Food Fair</label>
                     </li>
                     <li>
                         <input type="checkbox" id="category2" value="second_checkbox"><label
-                            for="category2">Category</label>
+                            for="category2">Museum</label>
                     </li>
                     <li>
                         <input type="checkbox" id="category3" value="third_checkbox"><label
-                            for="category3">Category</label>
+                            for="category3">Costume Party</label>
                     </li>
                     <li>
                         <input type="checkbox" id="category4" value="fourth_checkbox"><label
-                            for="category4">Category</label>
+                            for="category4">Music Concert</label>
                     </li>
                     <li>
                         <input type="checkbox" id="category5" value="fifth_checkbox"><label
-                            for="category5">Category</label>
+                            for="category5">Race</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="category6" value="fifth_checkbox"><label
+                            for="category6">Book Exchange</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="category7" value="fifth_checkbox"><label
+                            for="category7">Cinema</label>
                     </li>
                 </ul>
 
@@ -74,57 +83,10 @@
                 </div>
             </div>
 
-            <div class="card-container">
-
-                <div class="card">
-                    <img src="./assets/Cinema.jpg" class="card-img-top" alt="Cinema">
-                    <div class="card-body">
-                        <h5 class="card-title">Cinema</h5>
-                        <p class="card-text">Event description</p>
-                        <div>
-                            <h6>Price $10000</h6>
-                            <a href="./details.html" class="btn btn-primary">Go to</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./assets/Costume_Party.jpg" class="card-img-top" alt="Costume Party">
-                    <div class="card-body">
-                        <h5 class="card-title">Costume Party</h5>
-                        <p class="card-text">Event description</p>
-                        <div>
-                            <h6>Price $10000</h6>
-                            <a href="./details.html" class="btn btn-primary">Go to</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./assets/Food_Fair.jpg" class="card-img-top" alt="Food Fair">
-                    <div class="card-body">
-                        <h5 class="card-title">Food Fair</h5>
-                        <p class="card-text">Event description</p>
-                        <div>
-                            <h6>Price $10000</h6>
-                            <a href="./details.html" class="btn btn-primary">Go to</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./assets/Marathon.jpg" class="card-img-top" alt="Marathon">
-                    <div class="card-body">
-                        <h5 class="card-title">Marathon</h5>
-                        <p class="card-text">Event description</p>
-                        <div>
-                            <h6>Price $10000</h6>
-                            <a href="./details.html" class="btn btn-primary">Go to</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="card-container" id="card-container">
 
             </div>
+
         </div>
     </main>
 
@@ -140,6 +102,8 @@
         </div>
     </footer>
 
+    <script src="./scripts/data.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>
