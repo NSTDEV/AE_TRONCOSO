@@ -1,13 +1,12 @@
-const container = document.getElementById('past-container');
+const container = document.getElementById('card-container');
 const search = document.getElementById('search-box');
 const categorySearch = document.getElementById('categories');
 
 const dataIndex = data.events;
-let dateFilter = eventsFilter(dataIndex);
 
 //Functions calls
 showCheckboxs(dataIndex);
-showCards(dateFilter)
+showCards(dataIndex);
 
 //Functions
 function showCheckboxs(array) {
@@ -58,17 +57,6 @@ function showCards(array) {
     container.innerHTML = cards;
 };
 
-function eventsFilter(array) {
-    let dataFilter = []
-    for (i = 0; i < array.length; i++) {
-        if (array[i].date < data.currentDate) {
-            dataFilter.push(array[i]);
-        };
-    };
-
-    return dataFilter;
-};
-
 function searchbarFilter(array, searchText) {
     return array.filter(card => card.name.toLowerCase().includes(searchText.toLowerCase()));
 };
@@ -86,7 +74,7 @@ function filterByCategory(array) {
 };
 
 function dataFilter(){
-    let barFilter = searchbarFilter(dateFilter, search.value);
+    let barFilter = searchbarFilter(dataIndex, search.value);
     let checkFilter = filterByCategory(barFilter);
     showCards(checkFilter);
 };

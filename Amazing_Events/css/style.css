@@ -28,9 +28,18 @@ body {
     background-color: ghostwhite !important;
 }
 
+main {
+    margin-top: 6.4rem;
+}
+
 .navbar {
     display: flex;
+    position: fixed !important;
+    background-color: var(--purpleP) !important;
     padding: 1rem;
+    width: 100%;
+    z-index: 10;
+    transition: ease-in-out .5s !important;
 }
 
 .navbar-brand {
@@ -45,6 +54,7 @@ body {
     align-items: center;
     height: max-content;
     margin-bottom: 0;
+    transition: ease-in-out .5s !important;
 }
 
 .nav-items>li {
@@ -146,7 +156,7 @@ h1 {
     transition: .3s ease-in-out;
 }
 
-#categories input[type="checkbox"]{
+#categories input[type="checkbox"] {
     appearance: none;
     border: 2px solid var(--pink) !important;
     padding: 8px;
@@ -159,7 +169,7 @@ h1 {
     background-position: 0px -24px;
     background-color: var(--pink) !important;
     border-radius: 1rem;
-  }
+}
 
 #categories label {
     color: var(--purple-pink);
@@ -179,7 +189,7 @@ input {
     transition: .3s ease-in-out !important;
 }
 
-.checkbox:checked +  label {
+.checkbox:checked+label {
     color: var(--pink) !important;
     background-color: #FFD7D7 !important;
 }
@@ -231,6 +241,7 @@ input {
     text-align: center;
     box-shadow: -3px 3px var(--purpleP);
     border: 2px solid var(--pink) !important;
+    transition: .3s ease-in-out !important;
 }
 
 .card-img {
@@ -399,7 +410,7 @@ td {
 
 .div-container {
     display: flex;
-    height: max-content;
+    height: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -407,7 +418,7 @@ td {
 
 .details-container {
     padding: 1rem;
-    margin-block: 1rem;
+    margin-block: .5rem 1rem;
     width: 90%;
     height: 30.5rem;
     display: grid;
@@ -519,10 +530,20 @@ footer {
     background-color: var(--pink);
 }
 
+#no-content {
+    color: var(--white);
+    padding: 1rem;
+    background-color: var(--purple-pink);
+}
+
 @media screen and (max-width: 768px) {
 
     * {
         font-size: 1.2rem;
+    }
+
+    main {
+        margin-top: 3.6rem;
     }
 
     .toggle-menu {
@@ -561,6 +582,7 @@ footer {
         z-index: 3;
         left: 0;
         top: 3.4rem;
+        height: 100vh;
     }
 
     .nav-items>li {
@@ -611,13 +633,13 @@ footer {
 
     .table td,
     .table th {
-        padding: .75rem 0 !important;
+        padding: .75rem .1rem !important;
     }
 
     .details-container {
         display: flex;
         flex-direction: column;
-        margin-block: 3rem;
+        margin-block: 1rem;
         width: 100%;
         height: 100%;
     }
