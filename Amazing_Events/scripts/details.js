@@ -1,27 +1,30 @@
-const queryString = window.location.search;
-const params = new URLSearchParams(queryString);
-const id = params.get('_id');
+const querySearch = document.location.search;
+const id = new URLSearchParams(querySearch).get('id');
+const containerDetails = document.getElementById('div-container');
+const eventDetails = data.events.find(event => event._id == id);
 
-const eventDetails = data.events.find(event => event.id == id);
+containerDetails.innerHTML = `
+            <div class="details-container">
+                <img src="${eventDetails.image}" alt="">
 
+                <div class="details-section">
+                <h2 class="card-subtitle">${eventDetails.category}</h2>
+                    <h2 class="card-title">${eventDetails.name}</h2>
 
-const container = document.querySelector(".details-container");
-container.innerHTML + `
-        <img src="${eventDetails.image}" alt="">
-        <section class="card-body">
-            <div class="title-container">
-                <h2 class="card-title">${eventDetails.category}</h2>
-                <p>${dateventDetailsa.capacity}</p>
-            </div>
+                    <p id="date">${eventDetails.date}</p>
+                    <p class="card-text">${eventDetails.description}</p>
 
-            <h2 class="card-title">${eventDetails.name}</h2>
-            <p class="card-text">${eventDetails.description}</p>
+                    <div class="details-footer">
 
-            <div class="card-data">
-                <p class="colorText">${eventDetails.place}</p>
-                <p class="colorText">${eventDetails.date}</p>
-            </div>
-            <h6>$${eventDetails.price}</h6>
-        </section>`;
+                    <div class="title-container">
+                        <p class="colorText">${eventDetails.place}</p>
+                        <p>Capacity: ${eventDetails.capacity}</p>
+                    </div>
 
-console.log([document])
+                        <div class="price-container">
+                            <h6>Price: ${eventDetails.price} U$D</h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>`;

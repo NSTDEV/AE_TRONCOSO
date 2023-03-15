@@ -24,7 +24,7 @@ function showCheckboxs(array) {
 
 function showCards(array) {
 
-    if(array.length == 0){
+    if (array.length == 0) {
         container.innerHTML = `<h2 id="no-content" class="no-content">There's not event whit that name...</h2>`
         return
     }
@@ -42,14 +42,11 @@ function showCards(array) {
                     <h2 class="card-title">${event.name}</h2>
                     <p class="card-text">${event.description}</p>
 
-                    <div class="card-data">
-                        <p>Capacity: ${event.capacity}</p>
-                        <p class="colorText">Date: ${event.date}</p>
-                    </div>
+                    <p id="date">${event.date}</p>
 
                     <div>
                         <h6>Price $${event.price}</h6>
-                        <a href="./details.html" class="btn btn-primary">Go to</a>
+                        <a href="./details.html?id=${event._id}" class="btn btn-primary">Go to</a>
                     </div>
                 </div>
             </div>`;
@@ -77,7 +74,7 @@ function filterByCategory(array) {
     let checkboxes = Array.from(document.querySelectorAll("input[type='checkbox']"));
     let checkboxesChecked = checkboxes.filter(checkbox => checkbox.checked);
     let checkedValue = checkboxesChecked.map(checked => checked.value);
-    
+
     let filteredData = array.filter(card => checkedValue.includes(card.category));
 
     if (checkboxesChecked.length > 0) return filteredData;
@@ -85,7 +82,7 @@ function filterByCategory(array) {
     return array;
 };
 
-function dataFilter(){
+function dataFilter() {
     let barFilter = searchbarFilter(dateFilter, search.value);
     let checkFilter = filterByCategory(barFilter);
     showCards(checkFilter);
