@@ -15,16 +15,15 @@ containerDetails.innerHTML = `
                     <p class="card-text">${eventDetails.description}</p>
 
                     <div class="details-footer">
-
-                    <div class="title-container">
-                        <p class="colorText">${eventDetails.place}</p>
-                        <p>Capacity: ${eventDetails.capacity}</p>
-                    </div>
-
-                        <div class="price-container">
-                            <h6>Price: ${eventDetails.price} U$D</h6>
+                        <div class="title-container">
+                            <p class="colorText">${eventDetails.place}</p>
+                            <p>Capacity: ${eventDetails.capacity}</p>
                         </div>
 
+                        <div class="price-container">
+                            <p id="assistance">${eventDetails.assistance !== undefined ? 'Assistance: ' : 'Assistance Estimate: '}${eventDetails.assistance !== undefined ? eventDetails.assistance : eventDetails.estimate}</p>
+                            <h6>Price: ${eventDetails.price} U$D</h6>
+                        </div>
                     </div>
                 </div>
             </div>`;
