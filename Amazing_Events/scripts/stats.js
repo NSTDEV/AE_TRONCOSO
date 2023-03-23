@@ -36,7 +36,7 @@ async function dataReturn() {
     let upcomingTableFiltered = tableCategoryFilter(upcomingEvents);
 
     getAssistancePorcentaje(data.events);
-    minMaxTable(pastEvents, upcomingEvents);
+    minMaxTable(pastEvents);
     showTables(pastTableFiltered, pastTable);
     showTables(upcomingTableFiltered, upcomingTable);
 }
@@ -109,12 +109,12 @@ function showTables(array, table) {
     };
 };
 
-function minMaxTable(past, upcoming) {
+function minMaxTable(past) {
 
     let table = {
         'highestCapacity': past.sort(function (a, b) { return b.capacity - a.capacity })[0],
         'highestPercentaje': past.sort(function (a, b) { return b.percentaje - a.percentaje })[0],
-        'lowestPercentaje': upcoming.sort(function (a, b) { return a.percentaje - b.percentaje })[0]
+        'lowestPercentaje': past.sort(function (a, b) { return a.percentaje - b.percentaje })[0]
     };
 
     maxMinTable.innerHTML = `

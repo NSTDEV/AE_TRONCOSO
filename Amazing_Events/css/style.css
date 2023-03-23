@@ -5,14 +5,14 @@
     --black: #0B0B0B;
 
     --pink: #fe32ad;
-    --blue: #414bac;
-    --purpleP: #FFD7D7;
+    --whitePink: #FFD7D7;
     --purple-pink: #5B1F3D;
 }
 
 * {
     padding: 0;
     margin: 0;
+    text-decoration: none !important;
     box-sizing: border-box;
     font-family: 'Oswald', sans-serif;
 }
@@ -25,11 +25,16 @@ body {
     display: flex !important;
     flex-direction: column;
     min-height: 100%;
+    transition: all .5 ease;
     background-color: ghostwhite !important;
 }
 
 main {
     margin-top: 6.4rem;
+}
+
+header {
+    transition: all .3s ease !important;
 }
 
 .navbar {
@@ -39,7 +44,6 @@ main {
     padding: 1rem;
     width: 100%;
     z-index: 10;
-    transition: ease-in-out .5s !important;
 }
 
 .logo {
@@ -56,7 +60,6 @@ main {
     max-width: 15%;
     margin-inline: 1rem;
     cursor: pointer;
-    transition: ease-in-out .3s;
 }
 
 .navbar-brand:hover {
@@ -69,7 +72,6 @@ main {
     align-items: center;
     height: max-content;
     margin-bottom: 0;
-    transition: ease-in-out .5s !important;
 }
 
 .nav-items>li {
@@ -89,6 +91,7 @@ main {
     height: 4rem;
     display: grid;
     align-items: center;
+    transition: all .3s ease !important;
     text-align: center;
 }
 
@@ -97,7 +100,7 @@ main {
     border-radius: 0 0 1rem 0;
 }
 
-a {
+a:not(.item) {
     transition: .3s ease-in-out !important;
 }
 
@@ -106,9 +109,8 @@ a:hover:not(.page, .logo),
 #form-button:hover {
     color: var(--white) !important;
     background-color: var(--pink);
-    text-decoration: none !important;
     transform: scale(1.1);
-    box-shadow: -2px 2px var(--purpleP);
+    box-shadow: -2px 2px var(--whitePink);
 }
 
 .pagination {
@@ -131,14 +133,12 @@ h1 {
     padding-inline: 1.5rem;
     align-self: center;
     color: var(--white);
-    text-decoration: none !important;
     margin: auto 1rem;
     height: 100%;
 }
 
 .page:hover {
     color: var(--pink) !important;
-    text-decoration: none !important;
     transform: scale(1.1);
 }
 
@@ -228,7 +228,7 @@ input {
     text-align: center;
     color: var(--white);
     background-color: var(--pink);
-    box-shadow: -3px 3px var(--purpleP);
+    box-shadow: -3px 3px var(--whitePink);
 }
 
 #search-bar>input:focus {
@@ -251,9 +251,8 @@ input {
     margin-block: .5rem;
     border-radius: 0 0 35px 0 !important;
     text-align: center;
-    box-shadow: -3px 3px var(--purpleP);
+    box-shadow: -3px 3px var(--whitePink);
     border: 2px solid var(--pink) !important;
-    transition: .3s ease-in-out !important;
 }
 
 .card-img {
@@ -283,7 +282,7 @@ input {
     display: flex;
     align-items: center;
     background-color: var(--purple-pink);
-    border-bottom: 3px solid var(--purpleP);
+    border-bottom: 3px solid var(--whitePink);
 }
 
 .title-container>.card-title {
@@ -445,7 +444,7 @@ td {
 .details-container {
     border-radius: 10px;
     border: 3px solid var(--pink);
-    box-shadow: -4px 4px var(--purpleP);
+    box-shadow: -4px 4px var(--whitePink);
     width: 70%;
     height: 500px;
     overflow: hidden;
@@ -506,7 +505,7 @@ td {
 .details-container p {
     margin-block: 0 auto;
     background-color: #5B1F3D80;
-    border-bottom: 3px solid var(--purpleP);
+    border-bottom: 3px solid var(--whitePink);
     width: max-content;
     backdrop-filter: blur(10px);
     text-shadow: -1px 1px var(--purple-pink);
@@ -568,7 +567,7 @@ td {
     cursor: pointer;
     float: inline-end;
     font-size: 2.5rem !important;
-    color: var(--purpleP);
+    color: var(--whitePink);
 }
 
 .toggle-menu {
@@ -659,6 +658,32 @@ footer {
         width: 3rem;
         cursor: pointer;
         z-index: 3;
+    }
+
+    .nav-items {
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        padding-block: 3rem;
+        margin: 0 auto;
+        background-color: #5B1F3D80 !important;
+        backdrop-filter: blur(10px);
+        transform: translateY(-150%);
+        z-index: 3;
+        left: 0;
+        top: 3.4rem;
+        border-radius: 0 0 5rem 5rem !important;
+    }
+
+    .nav-items>li {
+        width: 100%;
+        margin: .2rem;
+    }
+
+    .item {
+        font-size: 2rem;
+        height: 4rem;
+        width: 90vw;
     }
 
     .form-label {
