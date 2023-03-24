@@ -1,10 +1,18 @@
+//Filters
 let container;
 const search = document.getElementById('search-box');
 const categorySearch = document.getElementById('categories');
 
+//Details
 const querySearch = document.location.search;
 const id = new URLSearchParams(querySearch).get('id');
 
+//Stats
+const maxMinTable = document.getElementById('maxMin');
+const pastTable = document.getElementById('pastTable');
+const upcomingTable = document.getElementById('upcomingTable');
+
+//Fetch
 let data, dateFilter;
 const URL = 'https://mindhub-xj03.onrender.com/api/amazing';
 const URLJson = './scripts/amazing.json';
@@ -33,28 +41,33 @@ async function dataReturn() {
     await fetchData();
 
     //Find the container to display cards
-    if (document.querySelector('#past-container')) {
-        container = document.getElementById('past-container');
+    if (document.getElementById('past-container')) {
         dateFilter = pastEventsFilter(data.events);
-        showCards(dateFilter);
-        showCheckboxs(dateFilter);
+        showAllData(dateFilter, 'past-container');
 
-    } else if (document.querySelector('#upcoming-container')) {
-        container = document.getElementById('upcoming-container');
+    } else if (document.getElementById('upcoming-container')) {
         dateFilter = upcomingEventsFilter(data.events);
-        showCards(dateFilter);
-        showCheckboxs(dateFilter);
+        showAllData(dateFilter, 'upcoming-container');
 
-    } else if (document.querySelector('#card-container')) {
-        container = document.getElementById('card-container');
-        showCards(data.events);
-        showCheckboxs(data.events);
+    } else if (document.getElementById('card-container')) {
+        showAllData(data.events, 'card-container');
 
     } else if (document.getElementById('div-container')) {
         container = document.getElementById('div-container');
         let eventID = data.events.find(event => event._id == id);
-
         showDetails(eventID);
+
+    } else if (document.querySelector('.table-container')) {
+        let pastEvents = pastEventsFilter(data.events);
+        let upcomingEvents = upcomingEventsFilter(data.events);
+
+        let pastTableFiltered = tableCategoryFilter(pastEvents);
+        let upcomingTableFiltered = tableCategoryFilter(upcomingEvents);
+
+        getAssistancePorcentaje(data.events);
+        minMaxTable(pastEvents);
+        showTables(pastTableFiltered, pastTable);
+        showTables(upcomingTableFiltered, upcomingTable);
     };
 
 };
@@ -117,11 +130,11 @@ function showDetails(array) {
                     <p class="card-text">${array.description}</p>
                     <div class="details-footer">
                         <div class="title-container">
-                            <p>${array.place}</p>
-                            <p>Capacity: ${array.capacity}</p>
+                            <p><span>Where?</span>: ${array.place}</p>
+                            <p><span>Capacity</span>: ${array.capacity}</p>
                         </div>
                         <div class="price-container">
-                            <p id="assistance">${array.assistance !== undefined ? 'Assistance: ' : 'Assistance Estimate: '}${array.assistance !== undefined ? array.assistance : array.estimate}</p>
+                            <p id="assistance">${array.assistance !== undefined ? '<span>Assistance</span>: ' : '<span>Assistance Estimate</span>: '}${array.assistance !== undefined ? array.assistance : array.estimate}</p>
                             <h6>Price: ${array.price} U$D</h6>
                         </div>
                     </div>
@@ -129,23 +142,91 @@ function showDetails(array) {
             </div>`;
 };
 
-//Cards events filters
-function upcomingEventsFilter(array) {
-    let dataFilter = [];
-    for (i = 0; i < array.length; i++) {
-        if (array[i].date > data.currentDate) dataFilter.push(array[i]);
+function showAllData(array, stringContainer) {
+    container = document.getElementById(stringContainer);
+
+    showCards(array);
+    showCheckboxs(array);
+
+    //Events
+    categorySearch.addEventListener('change', dataFilter);
+    search.addEventListener('input', dataFilter);
+};
+
+//--STATS--
+function getAssistancePorcentaje(array) {
+    array.forEach(event => {
+        isNaN(event.assistance)
+            ? event["percentaje"] = parseFloat(((event.estimate / event.capacity) * 100).toFixed(2))
+            : event["percentaje"] = parseFloat(((event.assistance / event.capacity) * 100).toFixed(2));
+    });
+};
+
+function tableCategoryFilter(array) {
+    let filter = Array.from(new Set(array.map(dataIndex => dataIndex.category)));
+    let table = [];
+
+    for (let i = 0; i < filter.length; i++) {
+        table.push([]);
+
+        for (const event of array) {
+            if (filter[i] == event.category) table[i].push(event);
+        };
     };
 
-    return dataFilter;
+    return table;
+};
+
+function showTables(array, table) {
+    let tableContent = ``;
+    for (let i = 0; i < array.length; i++) {
+
+        let revenue = 0;
+        let tablePercentaje = 0;
+        let category;
+
+        for (const event of array[i]) {
+            category = event.category;
+            revenue += event.price * (isNaN(event.assistance) ? event.estimate : event.assistance);
+            tablePercentaje += event.percentaje;
+        };
+
+        averagePercentaje = tablePercentaje / (array[i].length);
+
+        tableContent += `
+                <tr>
+                    <td>${category}</td>
+                    <td>$${revenue} U$D</td>
+                    <td>${parseFloat(averagePercentaje.toFixed(2))}%</td>
+                </tr>`;
+
+        table.innerHTML = tableContent;
+    };
+};
+
+function minMaxTable(past) {
+
+    let table = {
+        'highestCapacity': past.sort(function (a, b) { return b.capacity - a.capacity })[0],
+        'highestPercentaje': past.sort(function (a, b) { return b.percentaje - a.percentaje })[0],
+        'lowestPercentaje': past.sort(function (a, b) { return a.percentaje - b.percentaje })[0]
+    };
+
+    maxMinTable.innerHTML = `
+                <tr>
+                    <td>${table.highestPercentaje.name} (${table.highestPercentaje.percentaje}%)</td>
+                    <td>${table.lowestPercentaje.name} (${table.lowestPercentaje.percentaje}%)</td>
+                    <td>${table.highestCapacity.name} (${table.highestCapacity.capacity})</td>
+                </tr>`;
+};
+
+//Event filters
+function upcomingEventsFilter(array) {
+    return array.filter(event => event.date > data.currentDate);
 };
 
 function pastEventsFilter(array) {
-    let dataFilter = [];
-    for (i = 0; i < array.length; i++) {
-        if (array[i].date < data.currentDate) dataFilter.push(array[i]);
-    };
-
-    return dataFilter;
+    return array.filter(event => event.date < data.currentDate);
 };
 
 //Input filters
@@ -177,7 +258,3 @@ function dataFilter() {
         showCards(checkFilter);
     };
 };
-
-//Inputs events
-categorySearch.addEventListener('change', dataFilter);
-search.addEventListener('input', dataFilter);
