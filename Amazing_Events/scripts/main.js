@@ -41,35 +41,40 @@ async function dataReturn() {
     await fetchData();
 
     //Find the container to display cards
-    if (document.getElementById('past-container')) {
-        dateFilter = pastEventsFilter(data.events);
-        showAllData(dateFilter, 'past-container');
+    switch (true) {
+        case Boolean(document.getElementById('past-container')):
+            dateFilter = pastEventsFilter(data.events);
+            showAllData(dateFilter, 'past-container');
+            break;
 
-    } else if (document.getElementById('upcoming-container')) {
-        dateFilter = upcomingEventsFilter(data.events);
-        showAllData(dateFilter, 'upcoming-container');
+        case Boolean(document.getElementById('upcoming-container')):
+            dateFilter = upcomingEventsFilter(data.events);
+            showAllData(dateFilter, 'upcoming-container');
+            break;
 
-    } else if (document.getElementById('card-container')) {
-        showAllData(data.events, 'card-container');
+        case Boolean(document.getElementById('card-container')):
+            showAllData(data.events, 'card-container');
+            break;
 
-    } else if (document.getElementById('div-container')) {
-        container = document.getElementById('div-container');
-        let eventID = data.events.find(event => event._id == id);
-        showDetails(eventID);
+        case Boolean(document.getElementById('div-container')):
+            container = document.getElementById('div-container');
+            let eventID = data.events.find(event => event._id == id);
+            showDetails(eventID);
+            break;
 
-    } else if (document.querySelector('.table-container')) {
-        let pastEvents = pastEventsFilter(data.events);
-        let upcomingEvents = upcomingEventsFilter(data.events);
+        case Boolean(document.querySelector('.table-container')):
+            let pastEvents = pastEventsFilter(data.events);
+            let upcomingEvents = upcomingEventsFilter(data.events);
 
-        let pastTableFiltered = tableCategoryFilter(pastEvents);
-        let upcomingTableFiltered = tableCategoryFilter(upcomingEvents);
+            let pastTableFiltered = tableCategoryFilter(pastEvents);
+            let upcomingTableFiltered = tableCategoryFilter(upcomingEvents);
 
-        getAssistancePorcentaje(data.events);
-        minMaxTable(pastEvents);
-        showTables(pastTableFiltered, pastTable);
-        showTables(upcomingTableFiltered, upcomingTable);
+            getAssistancePorcentaje(data.events);
+            minMaxTable(pastEvents);
+            showTables(pastTableFiltered, pastTable);
+            showTables(upcomingTableFiltered, upcomingTable);
+            break;
     };
-
 };
 
 function showCheckboxs(array) {
