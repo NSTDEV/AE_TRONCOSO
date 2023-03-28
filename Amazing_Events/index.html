@@ -16,11 +16,13 @@
 <body>
 
     <header class="navbar">
-        <img src="./assets/Logo_Amazing_Events.png" alt="Amazing Events Logo" id="logo" class="navbar-brand">
+        <a class="logo" href="./index.html">
+            <img src="./assets/Logo_Amazing_Events.png" alt="Amazing Events Logo" id="logo" class="navbar-brand">
+        </a>
 
         <div id="toggle-menu" class="toggle-menu">
             <label for="toggle-menu-checkbox-show">
-                <img src="./assets/Navbar-toggler.png" alt="Responsive navbar" class="navbar-burguer">
+                <i class="fa fa-bars navbar-burguer"></i>
             </label>
         </div>
 
@@ -38,48 +40,24 @@
     <main>
         <div class="navigation">
             <div class="title-nav pagination">
-                <a class="page" href="./stats.html">&lt;</a>
+                <a class="page" href="./stats.html">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </a>
                 <h1>Home</h1>
-                <a class="page" href="./upcoming_events.html">&gt;</a>
+                <a class="page" href="./upcoming_events.html">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </a>
             </div>
         </div>
 
         <div class="wrapper">
             <div class="search-wrapper">
                 <ul id="categories">
-                    <li>
-                        <input type="checkbox" id="category1" class="checkbox" value="first_checkbox">
-                        <label for="category1">Food Fair</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="category2" class="checkbox" value="second_checkbox">
-                        <label for="category2">Museum</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="category3" class="checkbox" value="third_checkbox">
-                        <label for="category3">Costume Party</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="category4" class="checkbox" value="fourth_checkbox">
-                        <label for="category4">Music Concert</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="category5" class="checkbox" value="fifth_checkbox">
-                        <label for="category5">Race</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="category6" class="checkbox" value="fifth_checkbox">
-                        <label for="category6">Book Exchange</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="category7" class="checkbox" value="fifth_checkbox">
-                        <label for="category7">Cinema</label>
-                    </li>
+
                 </ul>
 
                 <div id="search-bar">
-                    <input type="text" name="query" id="search-box">
-                    <button class="fa fa-search"></button>
+                    <input type="text" name="query" id="search-box" class="search-box" placeholder="Search...">
                 </div>
             </div>
 
@@ -98,12 +76,12 @@
                 <a href="https://web.whatsapp.com/" target="_blank" class="s-link"><i class="fa fa-whatsapp"></i></a>
             </div>
 
-            <h3>Cohort</h3>
+            <h3>FE15-TM</h3>
         </div>
     </footer>
 
-    <script src="./scripts/data.js"></script>
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/main.js"></script>
+
 </body>
 
 </html>

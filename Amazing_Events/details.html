@@ -16,11 +16,13 @@
 <body>
 
     <header class="navbar">
-        <img src="./assets/Logo_Amazing_Events.png" alt="Amazing Events Logo" id="logo" class="navbar-brand">
+        <a class="logo" href="./index.html">
+            <img src="./assets/Logo_Amazing_Events.png" alt="Amazing Events Logo" id="logo" class="navbar-brand">
+        </a>
 
         <div id="toggle-menu" class="toggle-menu">
             <label for="toggle-menu-checkbox-show">
-                <img src="./assets/Navbar-toggler.png" alt="Responsive navbar" class="navbar-burguer">
+                <i class="fa fa-bars navbar-burguer"></i>
             </label>
         </div>
         <input type="checkbox" class="toggle-menu-checkbox-show" id="toggle-menu-checkbox-show">
@@ -36,25 +38,7 @@
 
     <main>
         <div class="wrapper">
-            <div class="div-container">
-                <div class="details-container">
-                    <img src="./assets/Museum_Tour.jpg" alt="">
-                    <section class="card-body">
-                        <div class="title-container">
-                            <h2 class="card-title">Costume Party</h2>
-                            <p>Capacity: 1000</p>
-                        </div>
-
-                        <h2 class="card-title">Tour</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis fugiat aperiam, adipisci omnis unde laboriosam illum, ducimus praesentium ipsam minus magni.</p>
-
-                        <div class="card-data">
-                            <p class="colorText">NY</p>
-                            <p class="colorText">Date: 21/05/09</p>
-                        </div>
-                        <h6>Price $150</h6>
-                    </section>
-                </div>
+            <div class="div-container" id="div-container">
             </div>
         </div>
     </main>
@@ -67,9 +51,11 @@
                 <a href="https://web.whatsapp.com/" target="_blank" class="s-link"><i class="fa fa-whatsapp"></i></a>
             </div>
 
-            <h3>Cohort</h3>
+            <h3>FE15-TM</h3>
         </div>
     </footer>
+
+    <script src="./scripts/main.js"></script>
 
 </body>
 
